@@ -1,4 +1,147 @@
-<!DOCTYPE html>
-<html lange="en">
+<!doctype html>
+<!-- 
+Project Gorgon Survey Help Tool
+This document is public domain, and no rights are reserved. There is no warranty. Use at your own risk.
+-->
+<html lang="en">
+  <head profile="http://www.w3.org/2005/10/profile>
+    <link rel="icon" type="image/png" href="http://www.defenestration.co/pg/surveying/images/dorf_favicon.png">
+    <link rel="shortcut icon" type="image/png" href="http://www.defenestration.co/pg/surveying/images/dorf_favicon.png">
+    
+    <!-- Required bootstrap meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
+    <title>Project Gorgon Povus Collector</title>
+  </head>
+  <body >
+    <div class="container-fluid">
+      <h1>Project Gorgon Povus Collector</h1>
+  
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#instructions">Introduction</a></li>
+        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#map">Map</a></li>
+      </ul>
+      
+      <div class="tab-content">
+
+        <!-- Instructions Tab -->
+        <div id="instructions" class="container-fluid tab-pane active">
+          <h4><font color=red>Is this totally broken and wrong?</font></h4>
+          Possibly! This supports motherlodes now. Using this tool could possibly cause your pets to explode.<br><br>
+          <h3>Hi!</h3>
+          <p>Make sure you're playing <a href="https://projectgorgon.com/" target="_blank">Project Gorgon</a>. If not, you're missing out and also this tool will be marginally less useful.</p>
+          <h4>Okay, So What the Heck?</h4>
+          <p>Surveying can be a lot of work, plus you want to get the bonuses for rapidly finding surveys. Some players organize them into quadrants or sort them in their inventory to make the run easier. 
+            This tool is a little different. It helps you make a map of the surveys in the order they are currently in your inventory.</p>
+          <h5>Is This Cheating?</h5>
+          <p>Nope. We asked. (This tool started out as a piece of plastic taped to the monitor and a red dry-erase monitor, before it gradually metastasized into javascript.)</p>
+          <h5>How Does This Work?</h5>
+          <p>Surveys are logged to chat logs. Load them into this tool to find the locations of your surveys and see them on a map.</p>
+          <p>Under the Settings menu, in the "Special" section, add "LogChat" to your special settings. There are instructions there.</p>
+          <p>You'll need to find your chat logs to load them into this tool. On Windows, that's a place like %APPDATA%\..\LocalLow\Elder Game\Project Gorgon\ChatLogs</p>
+          <p>Head over to the Map tab to get started!</p>
+          <h5>Who Are You and Why Make This?</h5>
+          <p style="margin-bottom: 60px">This arguably helpful tool is brought to you by one or more of the pathologically helpful folks in the 
+            <span style="position: relative;"><a href="https://www.rowentrading.com/" target="_blank">Rowen Trading Guild<img src="images/rowen_icon.png" style="position: absolute; top: 1.5em; left: 0px; height: 48px; width: 48px"></a></span>
+            and maybe also the <a href="http://wiki.projectgorgon.com/wiki/%22Title:_%27Unwanted_Child_of_Ormorek%27%22" target="_blank">Church of Ormorek, <img src="images/dorf.png" style="background-color: #4d8153; padding: 3px"> Reconstituted.</a></p>
+          <p>This tool does not upload any data to the internet. It runs entirely in your web browser. Spying on you would cost money, anyway.</p>
+          <h5>Aaaahhh! Help!</h5>
+          <p>Boy, don't I know it. <a href="https://forum.projectgorgon.com/showthread.php?2201-PG-Survey-Helper-Tool!" target="_blank">Post a question or comment on the Project Gorgon Forum thread</a> or and I'll try to help.</p>
+        </div>
+
+        <!-- Map Tab -->
+        <div id="map" class="container-fluid tab-pane fade">
+          <div class="row">
+            <div class="col-sm-auto">
+              <div class="row">
+                <div class="col-sm-auto align-self-center">
+                  Zone: 
+                </div>
+                <div class="col-sm-auto">
+                  <select class="form-control" id="zone_select" style="width: 400px">
+                    <option value="Eltibule">Eltibule</option>
+                    <option value="Ilmari">Ilmari</option>
+                    <option value="Kur Mountains">Kur Mountains</option>
+                    <option value="Serbule" selected>Serbule</option>
+                    <option value="Serbule Hills">Serbule Hills</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-auto" style="position: relative; padding-left: 15px;">
+                  <img src="images/povusMap.png" class="map_img img-fluid" alt="Zone Map" id="zone_map" style="padding: 0px;">
+                  <span id="regular_survey_pins"></span>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-auto">
+              <br>  
+              <h5>Helpful Surveying Checklist:</h5>
+              <ol></ol>
+              <li>Left click anywhere on the map and pin will be created with 180 second timer (after harvesting first time)</li>
+              <li>Then click on the timer of the bush you harvested after every harvest.</li>
+              <li>After 3rd harvest (click) pin will dissapear as bush will too.</li> 
+              <li>When timer expires pins change colors.</li>
+              <li>If you need to force delete pin, click on it two times.</li>
+              <li>Currently pin system is functional, but resizing does not work atm</li>
+              <li>Resizing after posting pins will mess up pins positions</li>
+              <li>If you want to resize please do before starting to put down pins</li>
+              </ol>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+  <script src="index.js"></script>
+  <style>
+    div.room_below {
+      padding-bottom: 15px;
+    }
+    
+    .tab-pane {
+      padding-top: 20px;
+    }
+    
+    .survey_dot {
+      height: 5px;
+      width: 5px;
+      background-color: #FF0000;
+      border-radius: 50%;
+      display: inline-block;
+      position: absolute;
+    }
+    
+    .survey_dot_label {
+      font-size: 14px;
+      font-weight: bold;
+      color: #FF0000;
+      position: absolute;
+    }
+    
+    .transparent_icon {
+      background-color: transparent;
+      border: none;
+      display: inline-block;
+      position: absolute;
+    }
+    
+    .map_img {
+      width: 650px;
+      height: 650px;
+      background-color: #707070;
+    }
+  </style>
 </html>
