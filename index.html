@@ -31,24 +31,20 @@ This document is public domain, and no rights are reserved. There is no warranty
 
         <!-- Instructions Tab -->
         <div id="instructions" class="container-fluid tab-pane active">
-          <h4><font color=red>Is this totally broken and wrong?</font></h4>
-          Possibly! This supports motherlodes now. Using this tool could possibly cause your pets to explode.<br><br>
           <h3>Hi!</h3>
           <p>Make sure you're playing <a href="https://projectgorgon.com/" target="_blank">Project Gorgon</a>. If not, you're missing out and also this tool will be marginally less useful.</p>
           <h4>Okay, So What the Heck?</h4>
-          <p>Surveying can be a lot of work, plus you want to get the bonuses for rapidly finding surveys. Some players organize them into quadrants or sort them in their inventory to make the run easier. 
-            This tool is a little different. It helps you make a map of the surveys in the order they are currently in your inventory.</p>
-          <h5>Is This Cheating?</h5>
-          <p>Nope. We asked. (This tool started out as a piece of plastic taped to the monitor and a red dry-erase monitor, before it gradually metastasized into javascript.)</p>
-          <h5>How Does This Work?</h5>
-          <p>Surveys are logged to chat logs. Load them into this tool to find the locations of your surveys and see them on a map.</p>
-          <p>Under the Settings menu, in the "Special" section, add "LogChat" to your special settings. There are instructions there.</p>
-          <p>You'll need to find your chat logs to load them into this tool. On Windows, that's a place like %APPDATA%\..\LocalLow\Elder Game\Project Gorgon\ChatLogs</p>
-          <p>Head over to the Map tab to get started!</p>
+          <p>This is basically copy of <a href="https://github.com/gchristopher/pg_survey_helper/"> already existing surveying web tool</a> with a tiny portion of the code altered</h5>
+          <p>Left click anywhere on the map and pin will be created with 180 second timer (after harvesting first time)</p>
+          <p>Then click on the timer of the bush you harvested after every harvest.</p>
+          <p>After 3rd harvest (click) pin will dissapear as bush will too.</p> 
+          <p>When timer expires pins change colors.</p>
+          <p>If you need to force delete pin, click on it two times.</p>
+          <p>Currently pin system is functional, but resizing does not work atm</p>
+          <p>Resizing after posting pins will mess up pins positions</p>
+          <p>If you want to resize please do before starting to put down pins</p>
           <h5>Who Are You and Why Make This?</h5>
-          <p style="margin-bottom: 60px">This arguably helpful tool is brought to you by one or more of the pathologically helpful folks in the 
-            <span style="position: relative;"><a href="https://www.rowentrading.com/" target="_blank">Rowen Trading Guild<img src="images/rowen_icon.png" style="position: absolute; top: 1.5em; left: 0px; height: 48px; width: 48px"></a></span>
-            and maybe also the <a href="http://wiki.projectgorgon.com/wiki/%22Title:_%27Unwanted_Child_of_Ormorek%27%22" target="_blank">Church of Ormorek, <img src="images/dorf.png" style="background-color: #4d8153; padding: 3px"> Reconstituted.</a></p>
+          <p>Need my soybeans.</p>
           <p>This tool does not upload any data to the internet. It runs entirely in your web browser. Spying on you would cost money, anyway.</p>
           <h5>Aaaahhh! Help!</h5>
           <p>Boy, don't I know it. <a href="https://forum.projectgorgon.com/showthread.php?2201-PG-Survey-Helper-Tool!" target="_blank">Post a question or comment on the Project Gorgon Forum thread</a> or and I'll try to help.</p>
@@ -64,11 +60,7 @@ This document is public domain, and no rights are reserved. There is no warranty
                 </div>
                 <div class="col-sm-auto">
                   <select class="form-control" id="zone_select" style="width: 400px">
-                    <option value="Eltibule">Eltibule</option>
-                    <option value="Ilmari">Ilmari</option>
-                    <option value="Kur Mountains">Kur Mountains</option>
-                    <option value="Serbule" selected>Serbule</option>
-                    <option value="Serbule Hills">Serbule Hills</option>
+                    <option value="">Povus</option>
                   </select>
                 </div>
               </div>
